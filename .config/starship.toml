@@ -1,0 +1,41 @@
+# Get editor completions based on the config schema
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Replace the "❯" symbol in the prompt with "➜"
+# [character] # The name of the module we are configuring is "character"
+# success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+
+# Disable the package module, hiding it from the prompt completely
+# [package]
+# disabled = true
+format = """[┌─](bright-red)$username$directory$git_branch $git_status
+[└─](bright-red) """
+
+[directory]
+style = "bold blue"
+read_only = " ()"
+home_symbol = ""
+format = " [$path](green)"
+truncate_to_repo = false
+# ~/.config/starship.toml
+
+[git_branch]
+symbol = " "
+truncation_length = 8
+truncation_symbol = "..."
+# ignore_branches = ["master", "main"]
+format = '[$symbol](blue) [\($branch\)](purple)'
+[git_status]
+# I don't care about untracked files or that there's a stash present.
+untracked = ""
+format = '([\[$conflicted$deleted$renamed$modified$staged$behind\]]($blue) )'
+modified = '*'
+
+[username]
+style_user = "blue"
+style_root = "black bold"
+format = '[\($user\)]($style)'
+disabled = false
+show_always = true
