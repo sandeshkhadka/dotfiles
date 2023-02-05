@@ -1,0 +1,14 @@
+#!/bin/sh
+
+option=$(printf "nevermind\nlock\nshutdown\nreboot" | dmenu)
+
+case "$option" in
+    "lock") betterlockscreen -l dim
+    ;;
+    "shutdown") shutdown -h now
+    ;;
+    "reboot") reboot
+    ;;
+    *) echo exit
+    ;;
+esac
