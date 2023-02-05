@@ -1,0 +1,6 @@
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+map i recolor
+map R reload
+
+set selection-clipboard clipboard
