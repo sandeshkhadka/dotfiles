@@ -1,6 +1,26 @@
 #
 # wm independent hotkeys
 #
+XF86AudioRaiseVolume
+    pulseaudio-ctl up
+XF86AudioLowerVolume
+    pulseaudio-ctl down
+XF86AudioMute
+   pulseaudio-ctl mute 
+XF86MonBrightnessUp 
+    brightnessctl set 5%+ 
+XF86MonBrightnessDown 
+    brightnessctl set 5%- 
+@Print
+    flameshot gui -c -p ~/Pictures/screenshots
+shift + @Print
+    flameshot full -c -p ~/Pictures/screenshots
+alt + F2
+    firefox
+alt + F3
+    thunderbird
+alt + 0
+    ~/bin/powerdmenu
 shift + ctrl + alt + q
     shutdown -h now
 # terminal emulator
@@ -124,23 +144,3 @@ super + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-XF86AudioRaiseVolume
-    pulseaudio-ctl up
-XF86AudioLowerVolume
-    pulseaudio-ctl down
-XF86AudioMute
-   pulseaudio-ctl mute 
-XF86MonBrightnessUp 
-    brightnessctl set 5%+ 
-XF86MonBrightnessDown 
-    brightnessctl set 5%- 
-@Print
-    flameshot gui -c -p ~/Pictures/screenshots
-shift + @Print
-    flameshot full -c -p ~/Pictures/screenshots
-alt + F2
-    firefox
-alt + F3
-    thunderbird
-alt + 0
-    ~/bin/powerdmenu
