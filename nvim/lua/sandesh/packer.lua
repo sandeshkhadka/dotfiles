@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-
+    use 'SidOfc/carbon.nvim'
     use({
         'rose-pine/neovim',
         as = 'rose-pine',
@@ -64,13 +64,6 @@ return require('packer').startup(function(use)
     }
     -- use("folke/zen-mode.nvim")
     -- use("github/copilot.vim")
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons', -- optional, for file icons
-        },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    }
     if packer_bootstrap then
         require('packer').sync()
     end
