@@ -1,1 +1,2 @@
 require("sandesh")
+require("snips")

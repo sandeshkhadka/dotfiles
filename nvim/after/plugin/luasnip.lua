@@ -31,8 +31,14 @@ ls.config.set_config {
 -- <c-k> is my expansion key
 -- this will expand the current item or jump to the next item within the snippet.
 vim.keymap.set({ "i", "s" }, "<c-k>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
+  if ls.jumpable() then
+    ls.jump(1)
+  end
+end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<c-l>", function()
+  if ls.expandable() then
+    ls.expand()
   end
 end, { silent = true })
 
@@ -46,19 +52,17 @@ end, { silent = true })
 
 -- <c-l> is selecting within a list of options.
 -- This is useful for choice nodes (introduced in the forthcoming episode 2)
---[[ vim.keymap.set("i", "<c-l>", function()
+vim.keymap.set("i", "<c-;>", function()
   if ls.choice_active() then
     ls.change_choice(1)
   end
-end) ]]
-
+end)
 -- vim.keymap.set("i", "<c-u>", require "luasnip.extras.select_choice")
 
 -- shorcut to source my luasnips file again, which will reload my snippets
-vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
 
 --[[ ls.snippets = {
     html = {
-        ls.parser.parse_snippet("p","<p>$1</p>$0"),
+        ls.parser.parse_snippet("ptest","<p class = \"test\">$1</p>$0"),
     },
 } ]]
