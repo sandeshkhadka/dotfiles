@@ -14,6 +14,9 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     -- My plugins here
+    -- Is using a standard Neovim install, i.e. built from source or using a
+    -- provided appimage.
+    use 'lewis6991/impatient.nvim'
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
