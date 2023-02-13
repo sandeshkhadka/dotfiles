@@ -1,2 +1,0 @@
-require("sandesh")
-require("snips")
