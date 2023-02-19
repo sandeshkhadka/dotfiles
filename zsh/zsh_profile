@@ -1,0 +1,16 @@
+bindkey -s ^f "tmux-sessionizer.sh\n"
+#default editor to nvim stuff
+VIM="nvim"
+export EDITOR=$VIM
+export GIT_EDITOR=$VIM
+alias vim=nvim
+
+# editor for ssh
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='mvim'
+fi
+
+export PATH=$HOME/.config/bin:/usr/local/bin:$PATH
+eval "$(starship init zsh)"
