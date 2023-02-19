@@ -27,6 +27,10 @@ return require('packer').startup(function(use)
         'rose-pine/neovim',
         as = 'rose-pine',
     })
+    use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+}
     use('morhetz/gruvbox')
     use('folke/tokyonight.nvim')
     use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
