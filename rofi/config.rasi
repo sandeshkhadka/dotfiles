@@ -126,7 +126,7 @@ element-text, element-icon {
     text-color: inherit;
 }
 configuration {
- modi: "window,drun,ssh,combi,calc";
+ modi: "window,drun,ssh,combi";
  font: "hack 10";
  combi-modi: "window,drun,ssh";
  }

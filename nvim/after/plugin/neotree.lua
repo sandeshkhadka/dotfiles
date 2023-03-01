@@ -200,6 +200,6 @@ require("neo-tree").setup({
     }
 })
 
-vim.keymap.set("n","<leader>e",":Neotree toggle<cr>")
+vim.keymap.set("n","<leader>eo",":Neotree toggle<cr>")
 vim.keymap.set("n","<leader>o",":Neotree focus<cr>")
 
