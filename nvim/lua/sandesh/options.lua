@@ -28,4 +28,6 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+vim.opt.tw = 110
+
 
