@@ -68,7 +68,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.9
+  opacity: 0.8
 
   # Startup Mode (changes require restart)
   #
@@ -112,16 +112,16 @@ window:
 # Font configuration
 font:
   # Normal (roman) font face
-   # normal:
+    normal:
     # Font family
     #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    # family: Anonymous Pro
+     family: JetBrainsMono Nerd Font
     # The `style` can be specified to pick a specific face.
-    # style: Regular
+     style: medium
 
   # Bold font face
   #bold:
@@ -157,7 +157,7 @@ font:
     #style: Bold Italic
 
   # Point size
-    size: 14.0
+    size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

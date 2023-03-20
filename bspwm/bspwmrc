@@ -28,7 +28,8 @@ do
 done
 $HOME/.config/polybar/launch.sh &
 xinput set-prop "ELAN050A:01 04F3:3158 Touchpad" "libinput Tapping Enabled" 1
-nitrogen --restore &
+#nitrogen --restore &
+feh --bg-fill ~/.config/feh/wallpapers/base.jpg
 picom &
 lxsession &
 xsetroot -cursor_name left_ptr
