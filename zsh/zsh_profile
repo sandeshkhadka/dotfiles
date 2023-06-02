@@ -1,4 +1,5 @@
 bindkey -s ^f "tmux-sessionizer.sh\n"
+zstyle ':completion:*' rehash true
 #default editor to nvim stuff
 VIM="nvim"
 export EDITOR=$VIM
@@ -12,5 +13,5 @@ else
   export EDITOR='mvim'
 fi
 
-export PATH=$HOME/.config/bin:/usr/local/bin:$PATH
-eval "$(starship init zsh)"
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# eval "$(starship init zsh)"
