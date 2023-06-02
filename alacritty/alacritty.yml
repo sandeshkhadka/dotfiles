@@ -8,8 +8,8 @@
 #
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
-#import:
-#  - /path/to/alacritty.yml
+import:
+ - ~/.config/alacritty/rosepine.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -22,6 +22,8 @@
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
+env:
+  TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -46,9 +48,9 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
+  padding:
+    x: 5
+    y: 5 
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -111,53 +113,24 @@ window:
 
 # Font configuration
 font:
-  # Normal (roman) font face
     normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
-     family: JetBrainsMono Nerd Font
-    # The `style` can be specified to pick a specific face.
-     style: medium
+     family: Cascadia Code
+     style: Light
 
-  # Bold font face
-  #bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
+    bold:
+      family: Cascadia Code
+      style:  Bold
 
-    # The `style` can be specified to pick a specific face.
-    #style: Bold
+    italic: 
+      family: Cascadia Code
+      style: Light Italic
 
-  # Italic font face
-  #italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
+    bold_italic:
+      family: Cascadia Code
+      style: Bold Italic
 
-    # The `style` can be specified to pick a specific face.
-    #style: Italic
-
-  # Bold italic font face
-  #bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Bold Italic
-
-  # Point size
     size: 10.0
+ # Point size
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

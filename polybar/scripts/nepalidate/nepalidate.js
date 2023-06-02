@@ -22,4 +22,3 @@ let months = [
 ];
 
 console.log(`${months[month]} ${date}`);
-

@@ -27,10 +27,11 @@ return require('packer').startup(function(use)
         'rose-pine/neovim',
         as = 'rose-pine',
     })
+    use { "catppuccin/nvim", as = "catppuccin" }
     use {
-  'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-}
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
     use('morhetz/gruvbox')
     use('folke/tokyonight.nvim')
     use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
@@ -71,7 +72,7 @@ return require('packer').startup(function(use)
     }
     -- Unless you are still migrating, remove the deprecated commands from v1.x
     vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-
+    use("nvim-tree/nvim-tree.lua")
     use {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
@@ -83,6 +84,11 @@ return require('packer').startup(function(use)
     }
     -- use("folke/zen-mode.nvim")
     use("github/copilot.vim")
+    use("barrett-ruth/live-server.nvim")
+    -- install without yarn or npm
+
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
     if packer_bootstrap then
         require('packer').sync()
     end

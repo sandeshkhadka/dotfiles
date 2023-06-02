@@ -16,6 +16,6 @@ case "$file" in
     ;;
     "") exit
     ;;
-    *) alacritty -e nvim ~/.config/"$file"/
+    *) alacritty --working-directory ~/.config/"$file"/ -e nvim .
     ;;
 esac
