@@ -39,10 +39,10 @@ return require('packer').startup(function(use)
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
     -- use('tpope/vim-fugitive')
-    --[[ use {
+    use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
-    } ]]
+    }
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -71,17 +71,18 @@ return require('packer').startup(function(use)
         end
     }
     -- Unless you are still migrating, remove the deprecated commands from v1.x
-    vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-    use("nvim-tree/nvim-tree.lua")
-    use {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-        }
-    }
+    -- vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+    use("stevearc/oil.nvim")
+    -- use("nvim-tree/nvim-tree.lua")
+    -- use {
+    --     "nvim-neo-tree/neo-tree.nvim",
+    --     branch = "v2.x",
+    --     requires = {
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    --         "MunifTanjim/nui.nvim",
+    --     }
+    -- }
     -- use("folke/zen-mode.nvim")
     use("github/copilot.vim")
     use("barrett-ruth/live-server.nvim")

@@ -39,10 +39,10 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
--- keymap to create new file in present directory
-vim.keymap.set("n", "<leader>nf", "<cmd>enew<CR>")
-
-
+vim.keymap.set({"i", "v", "n", "x"}, "<M-h>", ":wincmd h<CR>")
+vim.keymap.set({"i", "v", "n", "x"}, "<M-j>", ":wincmd j<CR>")
+vim.keymap.set({"i", "v", "n", "x"}, "<M-k>", ":wincmd k<CR>")
+vim.keymap.set({"i", "v", "n", "x"}, "<M-l>", ":wincmd l<CR>")
 
 
 

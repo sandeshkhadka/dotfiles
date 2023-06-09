@@ -20,6 +20,8 @@ lsp.configure('sumneko_lua', {
 lsp.configure('grammarly', {
     root_dir = nvim_lsp.util.root_pattern('rmd')
 })
+
+
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
