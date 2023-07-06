@@ -11,8 +11,8 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- save and quit
-vim.keymap.set("n", "<leader>w", ":w<CR>")
-vim.keymap.set("n", "<leader>q", ":q<CR>")
+-- vim.keymap.set("n", "<leader>w", ":w<CR>")
+-- vim.keymap.set("n", "<leader>q", ":q<CR>")
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -24,7 +24,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
 -- easy esacpe :)
-vim.keymap.set({"i", "v", "n", "x"}, "<M-i>", "<Esc>")
+vim.keymap.set({"i", "v", "n", "x"}, "<C-c>", "<Esc>")
 
 
 vim.keymap.set("n", "Q", "<nop>")

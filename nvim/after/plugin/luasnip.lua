@@ -4,7 +4,7 @@ end
 
 local ls = require "luasnip"
 local types = require "luasnip.util.types"
-
+require("luasnip/loaders/from_vscode").lazy_load()
 ls.config.set_config {
   -- This tells LuaSnip to remember to keep around the last snippet.
   -- You can jump back into it even if you move outside of the selection
@@ -57,6 +57,10 @@ vim.keymap.set("i", "<c-;>", function()
     ls.change_choice(1)
   end
 end)
+ls.filetype_extend("javascriptreact", { "javascript","html" })
+ls.filetype_extend("typescriptreact", { "javascriptreact","html" })
+
+
 -- vim.keymap.set("i", "<c-u>", require "luasnip.extras.select_choice")
 
 -- shorcut to source my luasnips file again, which will reload my snippets
