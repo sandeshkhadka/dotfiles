@@ -1,0 +1,9 @@
+[core]
+	editor = nvim
+[user]
+	email = email@gmail.com
+	name = sandeshkhadka
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
