@@ -1,15 +1,17 @@
 #!/bin/bash
-dotconfigsDir=(
+dotconfigDirs=(
   'alacritty' 'feh' 'pulseaudio-ctl'
   'nvim' 'ranger' 'sxhkd' 'rofi' 'tmux'
   'bspwm' 'polybar' 'zathura'
 )
 
-for config in ${dotconfigsDir[@]}; do
-  ln -s "$config" ~/.config/"$config"
+for config in ${dotconfigDirs[@]}; do
+  ln -srf "$config" ~/.config/"$config"
 done
 
-ln ./zsh/zsh_profile ~/.zsh_profile
-ln -s ./bin ~/bin
-ln ./starship.toml ~/.config/starship.toml
-ln ./picom.conf ~/.config/picom.conf
+ln -srf ./bin ~/bin
+
+ln -f picom.conf ~/.config/picom.conf
+ln -f starship.toml ~/.config/starship.toml
+ln -f .gitconfig ~/.gitconfig
+ln -f betterlockscreenrc ~/.config/betterlockscreenrc

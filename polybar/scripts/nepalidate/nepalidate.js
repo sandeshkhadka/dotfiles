@@ -1,4 +1,4 @@
-#!/bin/node
+#!/usr/bin/env node
 
 const NepaliDate = require('nepali-date-converter');
 //import NepaliDate from 'nepali-date-converter';
