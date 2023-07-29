@@ -25,7 +25,8 @@ shift + ctrl + alt + q
     shutdown -h now
 # terminal emulator
 alt + Return
-	alacritty
+    alacritty
+	# kitty
 # program launcher
 super + @space
 	rofi -show drun

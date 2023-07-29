@@ -15,9 +15,12 @@ bspc config gapless_monocle      true
 
 bspc rule -a firefox desktop='^3'
 bspc rule -a Alacritty desktop='^2'
+bspc rule -a kitty desktop='^2'
 bspc rule -a discord desktop='^4'
+bspc rule -a Slack desktop='^4'
 bspc rule -a Zathura desktop='^1' state=tiled
 bspc rule -a thunderbird desktop='^1' 
+bspc rule -a Code desktop='^1' 
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
@@ -33,7 +36,7 @@ xinput set-prop "ELAN050A:01 04F3:3158 Touchpad" "libinput Tapping Enabled" 1
 #nitrogen --restore &
 feh --bg-fill ~/.config/feh/wallpapers/base.jpg
 pgrep bspswallow || ~/bin/bspswallow &
-picom &
+# picom &
 lxsession &
 xsetroot -cursor_name left_ptr
 nm-applet &
