@@ -30,6 +30,7 @@ null_ls.setup({
 
 	sources = {
 		formatting.prettier,
+        formatting.clang_format,
 		-- formatting.stylua,
 		diagonstics.eslint_d,
 	},

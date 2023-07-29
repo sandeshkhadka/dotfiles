@@ -6,6 +6,7 @@ lsp.preset("recommended")
 lsp.ensure_installed({
 	"tsserver",
 	"lua_ls",
+    "clangd",
 })
 -- Fix Undefined global 'vim'
 lsp.configure("lua_ls", {

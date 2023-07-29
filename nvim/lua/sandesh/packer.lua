@@ -22,7 +22,11 @@ return require('packer').startup(function(use)
     -- or                            , branch = '0.1.x',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
-  -- use 'SidOfc/carbon.nvim'
+  -- colorschemes
+-- Using Packer:
+  use 'Mofiqul/dracula.nvim'
+  use "rebelot/kanagawa.nvim"
+  use 'marko-cerovac/material.nvim'
   use({
     'rose-pine/neovim',
     as = 'rose-pine',
@@ -34,6 +38,9 @@ return require('packer').startup(function(use)
   }
   use('morhetz/gruvbox')
   use('folke/tokyonight.nvim')
+
+
+
   use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
@@ -71,6 +78,11 @@ return require('packer').startup(function(use)
       { 'jay-babu/mason-null-ls.nvim' }
     }
   }
+  -- Debuger
+  -- use 'mfussenegger/nvim-dap'
+  -- use "jay-babu/mason-nvim-dap.nvim"
+  -- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+
   use {
     'numToStr/Comment.nvim',
     config = function()
@@ -79,7 +91,7 @@ return require('packer').startup(function(use)
   }
   -- Unless you are still migrating, remove the deprecated commands from v1.x
   -- vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-  use("stevearc/oil.nvim")
+  -- use("stevearc/oil.nvim")
   use("nvim-tree/nvim-web-devicons")
   -- use("nvim-tree/nvim-tree.lua")
   -- use {
