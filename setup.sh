@@ -6,7 +6,7 @@ dotconfigDirs=(
 )
 
 for config in ${dotconfigDirs[@]}; do
-  ln -srf "$config" ~/.config/"$config"
+  ln -srf "$config" ~/.config/
 done
 
 ln -srf ./bin ~/bin
