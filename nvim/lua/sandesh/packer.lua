@@ -89,7 +89,7 @@ return require('packer').startup(function(use)
   use {
     "mfussenegger/nvim-dap"
   }
-
+  use "theHamsta/nvim-dap-virtual-text"
   use {
     'numToStr/Comment.nvim',
     config = function()
