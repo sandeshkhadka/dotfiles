@@ -22,8 +22,8 @@ return require('packer').startup(function(use)
     -- or                            , branch = '0.1.x',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
+
   -- colorschemes
--- Using Packer:
   use 'Mofiqul/dracula.nvim'
   use "rebelot/kanagawa.nvim"
   use 'marko-cerovac/material.nvim'
@@ -82,6 +82,13 @@ return require('packer').startup(function(use)
   -- use 'mfussenegger/nvim-dap'
   -- use "jay-babu/mason-nvim-dap.nvim"
   -- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+      }
+  use {
+    "mfussenegger/nvim-dap"
+  }
 
   use {
     'numToStr/Comment.nvim',
@@ -89,11 +96,15 @@ return require('packer').startup(function(use)
       require('Comment').setup()
     end
   }
+
+
+
+
   -- Unless you are still migrating, remove the deprecated commands from v1.x
   -- vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
   -- use("stevearc/oil.nvim")
   use("nvim-tree/nvim-web-devicons")
-  -- use("nvim-tree/nvim-tree.lua")
+  use("nvim-tree/nvim-tree.lua")
   -- use {
   --     "nvim-neo-tree/neo-tree.nvim",
   --     branch = "v2.x",
@@ -105,28 +116,28 @@ return require('packer').startup(function(use)
   -- }
   -- use("folke/zen-mode.nvim")
   use("github/copilot.vim")
---   use {
---   "zbirenbaum/copilot.lua",
---   cmd = "Copilot",
---   event = "InsertEnter",
---   config = function()
---     require("copilot").setup({})
---   end,
--- }
+  --   use {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require("copilot").setup({})
+  --   end,
+  -- }
   -- Lua
   -- Lua
   use {
     'abecodes/tabout.nvim',
     config = function()
       require('tabout').setup {
-        tabkey = '<Tab>',         -- key to trigger tabout, set to an empty string to disable
+        tabkey = '<Tab>',             -- key to trigger tabout, set to an empty string to disable
         backwards_tabkey = '<S-Tab>', -- key to trigger backwards tabout, set to an empty string to disable
-        act_as_tab = true,        -- shift content if tab out is not possible
-        act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-        default_tab = '<C-t>',    -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-        default_shift_tab = '<C-d>', -- reverse shift default action,
-        enable_backwards = true,  -- well ...
-        completion = true,        -- if the tabkey is used in a completion pum
+        act_as_tab = true,            -- shift content if tab out is not possible
+        act_as_shift_tab = false,     -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+        default_tab = '<C-t>',        -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+        default_shift_tab = '<C-d>',  -- reverse shift default action,
+        enable_backwards = true,      -- well ...
+        completion = true,            -- if the tabkey is used in a completion pum
         tabouts = {
           { open = "'", close = "'" },
           { open = '"', close = '"' },
@@ -140,7 +151,7 @@ return require('packer').startup(function(use)
       }
     end,
     wants = { 'nvim-treesitter' }, -- or require if not used so far
-    after = { 'nvim-cmp' }    -- if a completion plugin is using tabs load it before
+    after = { 'nvim-cmp' }         -- if a completion plugin is using tabs load it before
   }
   use("barrett-ruth/live-server.nvim")
   -- install without yarn or npm
