@@ -25,19 +25,19 @@ return require('packer').startup(function(use)
 
   -- colorschemes
   use 'Mofiqul/dracula.nvim'
-  use "rebelot/kanagawa.nvim"
-  use 'marko-cerovac/material.nvim'
+  use 'neanias/everforest-nvim'
   use({
     'rose-pine/neovim',
     as = 'rose-pine',
   })
   use { "catppuccin/nvim", as = "catppuccin" }
+  use('morhetz/gruvbox')
+  use('folke/tokyonight.nvim')
+
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
-  use('morhetz/gruvbox')
-  use('folke/tokyonight.nvim')
 
 
 
