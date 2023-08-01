@@ -9,7 +9,9 @@ for config in ${dotconfigDirs[@]}; do
   ln -srf "$config" ~/.config/
 done
 
-ln -srf ./bin ~/bin
+ln -srf ./bin ~/
+ln -f ./.tmux-cht-command ~/
+ln -f ./.tmux-cht-languages ~/
 
 ln -f picom.conf ~/.config/picom.conf
 ln -f starship.toml ~/.config/starship.toml
