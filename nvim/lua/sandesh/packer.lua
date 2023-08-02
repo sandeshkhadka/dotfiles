@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
   }
 
   -- colorschemes
-  use 'Mofiqul/dracula.nvim'
+  use 'Tsuzat/NeoSolarized.nvim'
   use 'neanias/everforest-nvim'
   use({
     'rose-pine/neovim',

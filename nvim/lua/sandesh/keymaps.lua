@@ -1,5 +1,10 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>eo", ":Lex<CR>")
+-- vim.keymap.set("n", "<leader>eo", ":Lex<CR>")
+
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+-- Fugitive
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
