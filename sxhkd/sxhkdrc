@@ -38,9 +38,9 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 alt + c
-    ~/bin/config-editor.sh
+    config-editor.sh
 alt + shift + w
-    ~/bin/wallpaper-switcher.sh
+    wallpaper-switcher.sh
 #
 # bspwm hotkeys
 #
