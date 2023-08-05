@@ -47,7 +47,7 @@ return {
       },
       on_attach = function(client, bufnr)
         vim.keymap.set('n', '<leader>[',
-          ':silent !tmux neww bash -c "clang++ --debug % -o %.out ; ./%.out & while [ : ]; do sleep 1; done" <CR>',
+          ':silent !tmux neww bash -c "clang++ --debug -O1 % -o %.out ; ./%.out & while [ : ]; do sleep 1; done" <CR>',
           { desc = "Execute current file" })
       end
     })
@@ -89,7 +89,6 @@ return {
       vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
       vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
       vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
-      vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
       -- vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
       vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
     end)

@@ -1,7 +1,7 @@
 return {
-    'nvim-telescope/telescope.nvim',
-    version = '0.1.0',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+  'nvim-telescope/telescope.nvim',
+  version = '0.1.0',
+  dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     local builtin = require("telescope.builtin")
     vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Telescope find files" })
@@ -14,12 +14,15 @@ return {
     vim.keymap.set("n", "<leader>tlg", builtin.live_grep, { desc = "Live Grep" })
     vim.keymap.set("n", "<leader>tlr", builtin.lsp_references, { desc = "LSP References" })
     vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "LSP Definitions" })
-
-    vim.keymap.set("n", "<leader>ps", function()
-      builtin.grep_string({ search = vim.fn.input("Grep > ") })
-    end)
+    vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action, {desc = "LSP Code Action"})
     local actions = require("telescope.actions")
     require("telescope").setup({
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {
+          }
+        }
+      },
       defaults = {
         mappings = {
           i = {
@@ -28,5 +31,6 @@ return {
         },
       },
     })
+    require("telescope").load_extension("ui-select")
   end
 }

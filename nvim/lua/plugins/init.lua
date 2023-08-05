@@ -1,5 +1,6 @@
 return {
   'lewis6991/impatient.nvim',
+  'nvim-telescope/telescope-ui-select.nvim',
   {
     'nvim-lualine/lualine.nvim',
   },
