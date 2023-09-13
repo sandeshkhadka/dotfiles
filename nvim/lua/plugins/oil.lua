@@ -1,17 +1,17 @@
 return {
   'stevearc/oil.nvim',
-
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    vim.keymap.set("n", "<leader>eo", require("oil").open, { desc = "Open parent directory" })
+    vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
     vim.keymap.set("n", "<leader>ei", require("oil").open_float, { desc = "Open parent directory" })
     require("oil").setup({
       -- Id is automatically added at the beginning, and name at the end
       -- See :help oil-columns
       columns = {
         "icon",
-        "permissions",
-        "size",
-        "mtime",
+        -- "permissions",
+        -- "size",
+        -- "mtime",
       },
       -- Buffer-local options to use for oil buffers
       buf_options = {

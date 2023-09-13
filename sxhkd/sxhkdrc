@@ -16,7 +16,7 @@ XF86MonBrightnessDown
 shift + @Print
     flameshot full -c -p ~/Pictures/screenshots
 super + F2
-    firefox
+    google-chrome-unstable
 super + F3
     thunderbird
 alt + 0
