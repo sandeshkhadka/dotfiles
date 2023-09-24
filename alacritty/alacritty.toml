@@ -1,0 +1,20 @@
+import = ["/home/sandesh/.config/alacritty/rosepine.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Medium"
+
+[window]
+decorations = "none"
+opacity = 1
+title = "Alacritty"
+
+[window.padding]
+x = 5
+y = 5
