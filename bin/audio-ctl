@@ -1,0 +1,19 @@
+#!/bin/bash
+
+current_volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F '/' '{print $2}' | cut -d '%' -f1 | head -n 1)
+calculated_volume=$(($current_volume + 5))
+MAX_LIMIT=50
+if [ "$1" == 'up' ]; then
+    if [ "$current_volume" -gt "$MAX_LIMIT" ] || [ "$current_volume" -eq "$MAX_LIMIT" ] ; then
+        pactl set-sink-volume @DEFAULT_SINK@  "$MAX_LIMIT"%
+       exit 1;
+     elif [ "$calculated_volume" -gt "$MAX_LIMIT" ]; then
+        pactl set-sink-volume @DEFAULT_SINK@ "$MAX_LIMIT"%
+      else
+        pactl set-sink-volume @DEFAULT_SINK@ +5%
+    fi
+elif [ "$1" == 'down' ]; then
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
+elif [ "$1" == 'mute' ]; then
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+fi
