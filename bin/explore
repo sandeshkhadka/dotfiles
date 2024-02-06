@@ -1,0 +1,41 @@
+#!/bin/bash
+
+foldername=$(echo "$1" | awk -F/ '{print $2}' | sed 's/.git//')
+path=~/explore/$foldername
+barepath=~/explore/bare/$foldername.git
+if [[ -z $1 ]]; then
+    echo "No URL provided"
+    exit 0
+fi
+
+if [[ -d $path ]]; then
+    echo "Folder already exists"
+    exit 0
+fi
+
+if [[ -z $foldername ]]; then
+    echo "No foldername found"
+    exit 0
+fi
+
+echo "Cloning bare $1 to $path"
+
+git clone "$1" $barepath --bare
+git clone $barepath $path
+
+# create a tmux session in that folder and open in nvim
+
+tmux_running=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    tmux new-session -s $foldername -c $path
+    exit 0
+fi
+
+if ! tmux has-session -t=$foldername 2> /dev/null; then
+    tmux new-session -ds $foldername -c $path
+fi
+
+tmux switch-client -t $foldername
+
+

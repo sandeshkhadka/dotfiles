@@ -13,5 +13,7 @@ else
   export EDITOR='mvim'
 fi
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/anaconda3/bin:$PATH
+export PATH=$HOME/Applications:$PATH
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 # eval "$(starship init zsh)"

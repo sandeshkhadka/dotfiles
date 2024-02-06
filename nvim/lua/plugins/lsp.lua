@@ -37,19 +37,16 @@ return {
       },
       root_dir = nvim_lsp.util.root_pattern("init.lua"),
     })
-    lsp.configure("grammarly", {
-      root_dir = nvim_lsp.util.root_pattern("rmd"),
-    })
     lsp.configure("clangd", {
       cmd = {
         "clangd",
         "--offset-encoding=utf-16",
       },
-      on_attach = function(client, bufnr)
-        vim.keymap.set('n', '<leader>[',
-          ':silent !tmux neww bash -c "clang++ --debug -O1 % -o %.out ; ./%.out & while [ : ]; do sleep 1; done" <CR>',
-          { desc = "Execute current file" })
-      end
+      -- on_attach = function(client, bufnr)
+        -- vim.keymap.set('n', '<leader>[',
+        --   ':silent !tmux neww bash -c "clang++ --debug -O1 % -o %.out "<CR>',
+        --   { desc = "Execute current file" })
+      -- end
     })
     local cmp = require("cmp")
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -70,17 +67,14 @@ return {
       mapping = cmp_mappings,
     })
 
-    lsp.set_preferences({
-      suggest_lsp_servers = false,
-      sign_icons = {
+    lsp.set_sign_icons({
         error = "",
         warn = "",
         hint = "",
         info = "",
-      },
     })
 
-    lsp.on_attach(function(client, bufnr)
+    lsp.on_attach(function(_, bufnr)
       local opts = { buffer = bufnr, remap = false }
 
       -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -89,8 +83,8 @@ return {
       vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
       vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
       vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
-      -- vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
-      vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
+      -- vim.keymap.set("n", "<leadef>vrr", vim.lsp.buf.references, opts)
+      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     end)
 
     lsp.setup()

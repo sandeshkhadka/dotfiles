@@ -1,4 +1,4 @@
 book=$(find ~/Documents/college/ -type f | fzf)
 
-evince "$book" &
+zathura "$book" &
 

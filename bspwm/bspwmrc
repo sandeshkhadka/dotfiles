@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 # Rosé pine 
 bspc config focused_border_color "#6e6a86"
 
@@ -15,6 +15,7 @@ bspc config gapless_monocle      true
 
 bspc rule -a firefox desktop='^3'
 bspc rule -a Alacritty desktop='^2'
+bspc rule -a org.wezfurlong.wezterm desktop='^2'
 bspc rule -a kitty desktop='^2'
 bspc rule -a discord desktop='^4'
 bspc rule -a Slack desktop='^4'
@@ -35,10 +36,11 @@ $HOME/.config/polybar/launch.sh &
 xinput set-prop "ELAN050A:01 04F3:3158 Touchpad" "libinput Tapping Enabled" 1
 #nitrogen --restore &
 feh --bg-fill ~/.config/feh/wallpapers/base.jpg
-pgrep bspswallow || ~/bin/bspswallow &
+# pgrep bspswallow || ~/bin/bspswallow &
 # picom &
-lxsession &
+# lxsession &
 xsetroot -cursor_name left_ptr
 nm-applet &
-blueberry-tray
+blueman-applet &
+# blueberry-tray
 
