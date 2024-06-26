@@ -2,7 +2,7 @@ vim.opt.guicursor = ""
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
-
+vim.opt.conceallevel = 2
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 2
@@ -34,4 +34,25 @@ vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
 vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
+
 vim.g.netrw_banner = 0
+
+-- folding
+vim.opt.fillchars = { fold = " " }
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = false
+vim.opt.foldlevel = 99
+
+vim.cmd([[
+  function! CustomFoldText()
+    let line = getline(v:foldstart)
+    let indent = matchstr(line, '^\s*')
+    let num_lines = v:foldend - v:foldstart + 1
+    " return indent .. '-- folded ' .. num_lines .. ' lines --'
+    return indent .. "..."
+  endfunction
+
+  set foldtext=CustomFoldText()
+]])
+
+-- g.markdown_folding = 1 -- enable markdown folding
