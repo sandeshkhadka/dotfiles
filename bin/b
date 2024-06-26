@@ -1,4 +1,17 @@
-book=$(find ~/Documents/college/ -type f | fzf)
+#!/bin/bash
+reader="zathura"
+# reader="sioyek"
+book=$(find ~/Downloads/epubs/ ~/Downloads/pdfs/ -type f | fzf)
+if [ -z "$book" ]
+then
+  exit
+else
+  if [ -z "$1" ]
+  then
 
-zathura "$book" &
+    nohup "$reader" "$book" > ~/nohup.out &
+  else
+    nohup "$1" "$book" > ~/nohup.out & 
+  fi
 
+fi

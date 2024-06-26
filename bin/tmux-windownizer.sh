@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-directory=$(find ~/ ~/dotfiles ~/projects ~/playground ~/.config ~/explore -maxdepth 1 -mindepth 1 -type d | fzf)
+directory=$(find ~/ ~/vaults ~/explore/ ~/projects ~/playground ~/dotfiles ~/.config -mindepth 1 -maxdepth 1 -type d | fzf)
 window_name=$(basename "$directory" | tr . _)
 if [ -z "$window_name" ]
 then
