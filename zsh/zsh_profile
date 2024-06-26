@@ -1,11 +1,12 @@
-bindkey -s ^f "tmux-sessionizer.sh\n"
+# bindkey -s ^f "tmux-sessionizer.sh\n"
 zstyle ':completion:*' rehash true
 #default editor to nvim stuff
 VIM="nvim"
 export EDITOR=$VIM
 export GIT_EDITOR=$VIM
 alias vim=nvim
-
+alias ls=eza
+alias clipit="xclip -sel clip"
 # editor for ssh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
@@ -15,5 +16,10 @@ fi
 
 export PATH=$HOME/bin:/usr/local/bin:$HOME/anaconda3/bin:$PATH
 export PATH=$HOME/Applications:$PATH
+export PATH=/opt/platform-tools:$PATH
+export PATH=/home/sandesh/.local/bin:$PATH
+export PATH=/home/sandesh/go/bin:$PATH
+export BROWSER="microsoft-edge-dev"
+source /usr/share/autojump/autojump.zsh
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 # eval "$(starship init zsh)"

@@ -1,7 +1,7 @@
 #!/bin/bash
 dotconfigDirs=(
   'alacritty' 'nvim' 'ranger' 'rofi' 'tmux'
-  'zathura'
+  'zathura' 'kitty'
 )
 
 for config in ${dotconfigDirs[@]}; do

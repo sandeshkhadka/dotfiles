@@ -8,39 +8,44 @@ bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         2
 bspc config window_gap          5 
+bspc config top_padding          25 
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a firefox desktop='^3'
+bspc rule -a Microsoft-edge-dev desktop='^3'
+bspc rule -a Brave-browser desktop='^3'
 bspc rule -a Alacritty desktop='^2'
 bspc rule -a org.wezfurlong.wezterm desktop='^2'
 bspc rule -a kitty desktop='^2'
 bspc rule -a discord desktop='^4'
+bspc rule -a viber desktop='^5'
+bspc rule -a ViberPc desktop='^5'
 bspc rule -a Slack desktop='^4'
+bspc rule -a qBittorrent desktop='^6'
 bspc rule -a Zathura desktop='^1' state=tiled
 bspc rule -a thunderbird desktop='^1' 
+bspc rule -a Spotify desktop='^9' 
 bspc rule -a Code desktop='^1' 
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-foatingapps=('Lxappearance' 'Pavucontrol' 'Blueberry.py' 'Nitrogen')
+foatingapps=('Lxappearance' 'Pavucontrol' 'Blueberry.py' 'blueman-manager' 'Nitrogen' 'Xfce4-appfinder' 'Blueman-manager' 'Bluetooth Devices')
 
 for app in "${foatingapps[@]}"
 do 
     bspc rule -a $app state=floating
 done
-$HOME/.config/polybar/launch.sh &
 xinput set-prop "ELAN050A:01 04F3:3158 Touchpad" "libinput Tapping Enabled" 1
 #nitrogen --restore &
-feh --bg-fill ~/.config/feh/wallpapers/base.jpg
+# feh --bg-fill ~/.config/feh/wallpapers/base.jpg
 # pgrep bspswallow || ~/bin/bspswallow &
 # picom &
 # lxsession &
 xsetroot -cursor_name left_ptr
-nm-applet &
-blueman-applet &
+# nm-applet &
 # blueberry-tray
 

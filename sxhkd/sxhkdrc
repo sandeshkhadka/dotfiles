@@ -1,10 +1,9 @@
-#
 # wm independent hotkeys
 #
 XF86AudioRaiseVolume
-    pulseaudio-ctl up
+    ~/bin/audio-ctl up
 XF86AudioLowerVolume
-    pulseaudio-ctl down
+    ~/bin/audio-ctl down
 XF86AudioMute
    pulseaudio-ctl mute 
 XF86MonBrightnessUp 
@@ -15,32 +14,43 @@ XF86MonBrightnessDown
     flameshot gui
 shift + @Print
     flameshot full -c -p ~/Pictures/screenshots
-super + F2
-    google-chrome-unstable
-super + F3
+alt + F2
+    firefox
+    # brave
+    # microsoft-edge-dev
+alt + F3
     thunderbird
 alt + 0
     ~/bin/powerdmenu
 shift + ctrl + alt + q
     shutdown -h now
+
+super + b
+    ~/bin/bookmarks.sh
+
+alt + shift + b
+    dmenu-bluetooth
 # terminal emulator
 alt + Return
     alacritty
 	# kitty
 # program launcher
+super + e
+    rofi -show filebrowser
 super + @space
-	rofi -show drun
+    rofi -show drun
+	# xfce4-appfinder
 
 super + Return
-    rofimoji
+    rofimoji -a type copy
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
-alt + c
-    config-editor.sh
+alt + shift + c
+    ~/bin/config-editor.sh
 alt + shift + w
-    wallpaper-switcher.sh
+    ~/bin/wallpaper-switcher.sh
 #
 # bspwm hotkeys
 #
@@ -50,7 +60,7 @@ super + shift + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + }q
+alt + {_,shift + }q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -86,8 +96,8 @@ super  + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+super + {p,comma,period}
+	bspc node -f @{parent,first,second}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }c
@@ -108,7 +118,7 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9}
+alt + {_,shift + }{1-9}
 	bspc {desktop -f,node -d} '^{1-9}'
 
 #
