@@ -1,6 +1,6 @@
 #!/bin/sh
 
-option=$(printf "nevermind\nlock\nshutdown\nreboot\nlogout" | dmenu)
+option=$(printf "nevermind\nlock\nshutdown\nreboot\nsuspend\nlogout" | dmenu)
 
 case "$option" in
     "lock") betterlockscreen -l dim
@@ -10,6 +10,8 @@ case "$option" in
     "reboot") reboot
     ;;
     "logout") loginctl terminate-user $USER
+    ;;
+    "suspend") systemctl suspend
     ;;
     *) echo exit
     ;;

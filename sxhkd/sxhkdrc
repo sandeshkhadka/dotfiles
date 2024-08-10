@@ -14,8 +14,10 @@ XF86MonBrightnessDown
     flameshot gui
 shift + @Print
     flameshot full -c -p ~/Pictures/screenshots
+alt + shift + F2
+    ~/bin/firefox-profiles  
 alt + F2
-    firefox
+    firefox-developer-edition
     # brave
     # microsoft-edge-dev
 alt + F3
