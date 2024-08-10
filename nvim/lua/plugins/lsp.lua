@@ -65,6 +65,8 @@ return {
 				tailwindcss = true,
 				cssmodules_ls = true,
 				pyright = true,
+				eslint = true,
+				grammarly = true,
 			}
 			local servers_to_install = vim.tbl_filter(function(key)
 				local t = servers[key]

@@ -22,11 +22,11 @@ return {
 
 			cmp.setup({
 				sources = {
+					{ name = "luasnip", keyword_length = 2 },
 					{ name = "nvim_lsp" },
 					{ name = "cody" },
 					{ name = "path" },
 					{ name = "buffer" },
-					{ name = "luasnip", keyword_length = 2 },
 				},
 				mapping = {
 					["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
