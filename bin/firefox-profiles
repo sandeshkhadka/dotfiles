@@ -1,8 +1,10 @@
 #!/bin/bash
 
-profile=$(grep Name /home/sandesh/.mozilla/firefox/profiles.ini | awk -F "=" '{print $2}' | dmenu -p "Profile: ")
+profile=$(grep Name /home/sandesh/.mozilla/firefox/profiles.ini | awk -F "=" '{print $2}' | wofi -d -p "Profile: ")
 if [ -z $profile ]
 then
   exit
 fi
-firefox-developer-edition -P $profile
+# echo "$profile"
+# firefox-developer-edition -P $profile
+firefox -P $profile &
