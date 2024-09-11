@@ -15,6 +15,7 @@ return {
 
 			-- Schema information
 			"b0o/SchemaStore.nvim",
+			"https://git.sr.ht/~p00f/clangd_extensions.nvim",
 		},
 		config = function()
 			require("neodev").setup({})
@@ -61,12 +62,18 @@ return {
 					},
 				},
 
-				clangd = true,
+				clangd = {
+					filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+				},
+				-- clangd = true,
 				tailwindcss = true,
 				cssmodules_ls = true,
 				pyright = true,
 				eslint = true,
-				grammarly = true,
+				bufls = true,
+				pbls = true,
+				cmake = true,
+				rust_analyzer = true,
 			}
 			local servers_to_install = vim.tbl_filter(function(key)
 				local t = servers[key]
@@ -167,6 +174,8 @@ return {
 					python = { "isort", "black" },
 					-- Use a sub-list to run only the first available formatter
 					javascript = { "prettierd" },
+					-- cpp = { "clang-format" },
+					c = { "clang-format" },
 				},
 			})
 
@@ -174,7 +183,7 @@ return {
 				callback = function(args)
 					require("conform").format({
 						bufnr = args.buf,
-						lsp_fallback = true,
+						lsp_fallback = false,
 						quiet = true,
 					})
 				end,
