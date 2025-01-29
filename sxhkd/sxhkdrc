@@ -11,19 +11,23 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown 
     brightnessctl set 5%- 
 @Print
-    flameshot gui
+    xfce4-screenshooter -c -r --save ~/Pictures/Screenshots/"Screenshot $(date -d "today" +"%Y-%m-%d %H:%M:%N").png"
 shift + @Print
-    flameshot full -c -p ~/Pictures/screenshots
+    xfce4-screenshooter -c --fullscreen --save ~/Pictures/Screenshots/"Screenshot $(date -d "today" +"%Y-%m-%d %H:%M:%N").png"
 alt + shift + F2
     ~/bin/firefox-profiles  
 alt + F2
-    firefox-developer-edition
+    firefox
     # brave
     # microsoft-edge-dev
 alt + F3
     thunderbird
 alt + 0
-    ~/bin/powerdmenu
+    powerdmenu
+alt + v
+    clipton
+
+
 shift + ctrl + alt + q
     shutdown -h now
 
@@ -34,17 +38,18 @@ alt + shift + b
     dmenu-bluetooth
 # terminal emulator
 alt + Return
-    alacritty
-	# kitty
+	kitty
+    # alacritty
+    # ghostty
 # program launcher
 super + e
     rofi -show filebrowser
 super + @space
-    rofi -show drun
-	# xfce4-appfinder
+	rofi -show drun
 
 super + Return
     rofimoji -a type copy
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -62,7 +67,7 @@ super + shift + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-alt + {_,shift + }q
+super + {_,shift + }q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -120,7 +125,7 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-alt + {_,shift + }{1-9}
+super + {_,shift + }{1-9}
 	bspc {desktop -f,node -d} '^{1-9}'
 
 #

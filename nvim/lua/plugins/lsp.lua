@@ -71,7 +71,7 @@ return {
 				pyright = true,
 				eslint = true,
 				bufls = true,
-				pbls = true,
+				-- pbls = true,
 				cmake = true,
 				rust_analyzer = true,
 			}

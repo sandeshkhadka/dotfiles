@@ -8,7 +8,7 @@ configs=(
 file=$(for config in ${configs[@]}
 do
     echo "$config"
-done | wofi -dmenu)
+done | rofi -dmenu)
 case "$file" in
     "picom") alacritty -e nvim ~/.config/picom.conf
     ;;

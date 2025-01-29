@@ -2,7 +2,7 @@
 dotconfigDirs=(
   'alacritty' 'feh' 'pulseaudio-ctl'
   'nvim' 'ranger' 'sxhkd' 'rofi' 'tmux'
-  'bspwm' 'polybar' 'zathura'
+  'bspwm' 'polybar' 'zathura' 'kitty'
 )
 
 for config in ${dotconfigDirs[@]}; do

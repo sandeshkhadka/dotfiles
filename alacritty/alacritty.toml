@@ -1,4 +1,4 @@
-import = ["/home/sandesh/.config/alacritty/rosepine.toml"]
+general.import = ["/home/sandesh/.config/alacritty/rosepine.toml"]
 
 [env]
 TERM = "xterm-256color"

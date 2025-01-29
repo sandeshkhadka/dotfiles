@@ -1,6 +1,6 @@
 #!/bin/sh
 
-option=$(printf "nevermind\nlock\nshutdown\nreboot\nsuspend\nlogout" | dmenu)
+option=$(printf "nevermind\nlock\nshutdown\nreboot\nsuspend\nlogout" | rofi -dmenu)
 
 case "$option" in
     "lock") betterlockscreen -l dim
