@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+import os
+import subprocess
+
+BATTERY_PATH = "/sys/class/power_supply/BAT1"
+STATUS = open(f"{BATTERY_PATH}/status").read().strip()  # Charging or Discharging
+
+# Check if a toggle file exists, otherwise create one
+toggle_file = "/tmp/battery_mode"
+if not os.path.exists(toggle_file):
+    with open(toggle_file, 'w') as f:
+        f.write("percent")
+
+# Read the current mode (percent or time)
+with open(toggle_file, 'r') as f:
+    mode = f.read().strip()
+
+# Handle left-click to toggle between percentage and remaining time
+block_button = os.getenv("BLOCK_BUTTON")
+if block_button == "1":
+    # Toggle mode between percent and time
+    if mode == "percent":
+        mode = "time"
+    else:
+        mode = "percent"
+    with open(toggle_file, 'w') as f:
+        f.write(mode)
+
+if mode == "percent":
+    # Show battery percentage
+    capacity = open(f"{BATTERY_PATH}/capacity").read().strip()
+    print(f"{capacity}%")
+else:
+    # Estimate time remaining
+    try:
+        charge_now = int(open(f"{BATTERY_PATH}/charge_now").read().strip())
+        current_now = int(open(f"{BATTERY_PATH}/current_now").read().strip())
+    except ValueError:
+        charge_now = 0
+        current_now = 1  # Avoid division by zero
+
+    if STATUS == "Discharging" and current_now > 0:
+        # Calculate remaining time in hours and minutes
+        time_remaining = charge_now / current_now  # Time in hours
+        hours = int(time_remaining)
+        minutes = int((time_remaining - hours) * 60)
+
+        # If minutes >= 60, adjust hours and minutes
+        if minutes >= 60:
+            hours += 1
+            minutes = 0
+
+        print(f"{hours} h {minutes} min")
+    else:
+        print("Charging")
+

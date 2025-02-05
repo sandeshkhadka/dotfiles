@@ -1,0 +1,53 @@
+# i3blocks default config file
+# Each block follows this format:
+# [block_name]
+# label=Icon or text prefix
+# command=Script or command to execute
+# interval=Update interval in seconds
+
+[volume]
+label= 🕩
+command=$SCRIPTS/volume
+interval=1
+
+[microphone]
+label= 
+command=$SCRIPTS/microphone
+interval=1
+
+[battery]
+label= 󰁹
+command=$SCRIPTS/battery
+interval=1
+
+[cpu]
+label=
+command=$SCRIPTS/cpu
+interval=1
+
+[memory]
+label= 
+command=free -h | awk '/Mem:/ {print $3 "/" $2}'
+interval=5
+
+[disk]
+label=
+command=df -h / | awk 'NR==2 {print $4 }'
+interval=60
+
+
+[brightness]
+label=
+command=$SCRIPTS/brightness
+interval=1
+
+[nepalidate]
+label=
+command=/home/sandesh/.local/share/fnm/node-versions/v22.13.1/installation/bin/node /home/sandesh/dotfiles/polybar/scripts/nepalidate/nepalidate.js
+interval=60
+
+[time]
+label=
+command=date +"%I:%M %p"
+interval=1
+

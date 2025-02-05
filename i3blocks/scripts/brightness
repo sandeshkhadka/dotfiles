@@ -1,0 +1,20 @@
+#!/bin/bash
+
+case "$BLOCK_BUTTON" in
+    1) arandr & ;;  # Left-click: Open GUI for brightness (optional)
+    3) current=$(brightnessctl get)
+       max=$(brightnessctl max)
+       percent=$(( 100 * current / max ))
+       if [ "$percent" -gt 20 ]; then
+           brightnessctl set 20% >> /dev/null
+       else
+           brightnessctl set 100% >> /dev/null
+       fi
+       ;;
+    4) brightnessctl set +5% >> /dev/null ;;  # Scroll up: Increase brightness by 5%
+    5) brightnessctl set 5%- >> /dev/null;;  # Scroll down: Decrease brightness by 5%
+esac
+
+# Always print the current brightness percentage
+brightnessctl get | awk -v max=$(brightnessctl max) '{printf "%.0f%%\n", ($1/max)*100}'
+
