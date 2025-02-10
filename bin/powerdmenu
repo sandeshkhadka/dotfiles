@@ -5,9 +5,9 @@ option=$(printf "nevermind\nlock\nshutdown\nreboot\nsuspend\nlogout" | rofi -dme
 case "$option" in
     "lock") betterlockscreen -l dim
     ;;
-    "shutdown") shutdown -h now
+    "shutdown") systemctl poweroff
     ;;
-    "reboot") reboot
+    "reboot") systemctl reboot
     ;;
     "logout") loginctl terminate-user $USER
     ;;

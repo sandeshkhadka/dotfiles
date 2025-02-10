@@ -27,3 +27,9 @@ element-text {
   font:            "FiraCode Nerd Font 24";
 }
 
+configuration {
+	kb-mode-next: "";
+	kb-mode-previous: "";
+	kb-row-left: "ISO_Left_Tab";
+	kb-row-right: "Tab";
+}
