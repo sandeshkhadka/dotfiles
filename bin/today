@@ -1,0 +1,73 @@
+#!/bin/env python3
+
+import os
+import datetime
+import subprocess
+from pathlib import Path
+import sys
+
+def main(file_date, display_date):
+    # Get today's date in required format
+    
+    # Path to journal file
+    journal_path = os.path.expanduser(f"~/vaults/journal/{file_date}.md")
+    
+    # Create directory if it doesn't exist
+    journal_dir = os.path.dirname(journal_path)
+    Path(journal_dir).mkdir(parents=True, exist_ok=True)
+    
+    # Check if file exists
+    if not os.path.exists(journal_path):
+        # Create template
+        template = create_template(display_date)
+        
+        # Write template to file
+        with open(journal_path, 'w') as f:
+            f.write(template)
+    
+    # Open file in neovim
+    subprocess.run(['nvim', journal_path])
+
+def create_template(date_str):
+    template = f"""# {date_str}
+
+## Todos
+- [ ] 
+
+## Timeline
+- [7  ==> 8  :] 
+- [8  ==> 9  :] 
+- [9  ==> 10 :] 
+- [10 ==> 11 :] 
+- [11 ==> 12 :] 
+- [12 ==> 1  :] 
+- [1  ==> 2  :] 
+- [2  ==> 3  :] 
+- [3  ==> 4  :] 
+- [4  ==> 5  :] 
+- [5  ==> 6  :] 
+- [6  ==> 7  :] 
+- [7  ==> 8  :] 
+- [8  ==> 9  :] 
+- [9  ==> 10 :] 
+
+
+"""
+    return template
+
+if __name__ == "__main__":
+    date = datetime.datetime.now()
+    tommorow = date + datetime.timedelta(days=1)
+    yesterday = date - datetime.timedelta(days=1)
+
+    if len(sys.argv) == 2:
+        arg = sys.argv[1]
+        if arg == "tommorow":
+            date = tommorow
+        elif arg == "yesterday":
+            date = yesterday
+
+    file_date = date.strftime("%Y-%m-%d")
+    display_date = date.strftime("%A, %b %-d, %Y")
+    main(file_date, display_date)
+

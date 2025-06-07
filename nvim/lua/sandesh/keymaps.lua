@@ -3,7 +3,9 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 -- Fugitive
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+if not vim.g.vscode then
+	vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+end
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

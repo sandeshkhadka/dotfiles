@@ -25,7 +25,8 @@ return {
 				dapui.close()
 			end
 			-- adapters
-			require("dap-python").setup("python")
+			require("dap-python").setup("python3")
+
 			dap.adapters.lldb = {
 				type = "executable",
 				command = "/usr/bin/lldb-vscode", -- adjust as needed, must be absolute path

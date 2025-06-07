@@ -1,7 +1,7 @@
 [core]
 	editor = nvim
 [user]
-	email = email@gmail.com
+	email = pqrsandesh@gmail.com
 	name = sandeshkhadka
 [init]
 	defaultBranch = main

@@ -20,4 +20,24 @@ return {
 			require("Comment").setup()
 		end,
 	},
+	{
+		"echasnovski/mini.bracketed",
+		version = "*",
+		config = function()
+			require("mini.bracketed").setup()
+		end,
+	},
+	{
+		"echasnovski/mini.ai",
+		version = "*",
+		config = function()
+			require("mini.ai").setup()
+		end,
+	},
+	{
+		"catgoose/nvim-colorizer.lua",
+		event = "BufReadPre",
+		opts = { -- set to setup table
+		},
+	},
 }

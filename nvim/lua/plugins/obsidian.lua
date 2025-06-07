@@ -14,9 +14,11 @@ return {
 		"BufReadPre " .. vim.fn.expand("~") .. "/vaults/personal/**/**.md",
 		"BufNewFile " .. vim.fn.expand("~") .. "/vaults/personal/**/**.md",
 		"BufReadPre " .. vim.fn.expand("~") .. "/vaults/wikis/**.md",
-		"BufNewFile " .. vim.fn.expand("~") .. "/vaults/wikis/**.md",
 		"BufReadPre " .. vim.fn.expand("~") .. "/vaults/wikis/**/**.md",
 		"BufNewFile " .. vim.fn.expand("~") .. "/vaults/wikis/**/**.md",
+		"BufReadPre " .. vim.fn.expand("~") .. "/vaults/journal/**.md",
+		"BufReadPre " .. vim.fn.expand("~") .. "/vaults/journal/**/**.md",
+		"BufNewFile " .. vim.fn.expand("~") .. "/vaults/journal/**/**.md",
 	},
 	dependencies = {
 		-- Required.
@@ -34,6 +36,13 @@ return {
 				{
 					name = "wikis",
 					path = "~/vaults/wikis",
+					overrides = {
+						disable_frontmatter = true,
+					},
+				},
+				{
+					name = "journal",
+					path = "~/vaults/journal",
 					overrides = {
 						disable_frontmatter = true,
 					},
