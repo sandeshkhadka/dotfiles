@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 -- Fugitive
 if not vim.g.vscode then
-	vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+  vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 end
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -49,3 +49,5 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 -- vim.keymap.set({ "i", "v", "n", "x" }, "<M-j>", ":wincmd j<CR>")
 -- vim.keymap.set({ "i", "v", "n", "x" }, "<M-k>", ":wincmd k<CR>")
 -- vim.keymap.set({ "i", "v", "n", "x" }, "<M-l>", ":wincmd l<CR>")
+vim.keymap.set("n", "gl", vim.diagnostic.open_float)
+vim.keymap.set("n", "gT", vim.lsp.buf.type_definition )

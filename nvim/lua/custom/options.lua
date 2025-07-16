@@ -1,5 +1,6 @@
 vim.opt.guicursor = ""
 
+vim.opt.number = true
 vim.opt.rnu = true
 vim.opt.conceallevel = 2
 vim.opt.tabstop = 4

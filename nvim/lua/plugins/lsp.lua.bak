@@ -72,9 +72,11 @@ return {
 				eslint = true,
 				-- bufls = true,
 				-- pbls = true,
-				cmake = true,
+				-- cmake = true,
 				rust_analyzer = true,
 				gopls = true,
+				-- csharp_ls = true,
+				omnisharp = true,
 			}
 			local servers_to_install = vim.tbl_filter(function(key)
 				local t = servers[key]
@@ -125,8 +127,8 @@ return {
 					local builtin = require("telescope.builtin")
 
 					vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
-					vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = 0 })
-					vim.keymap.set("n", "gr", builtin.lsp_references, { buffer = 0 })
+					vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
+					vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
 					vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
 					vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
@@ -186,22 +188,6 @@ return {
 						quiet = true,
 					})
 				end,
-			})
-			require("fidget").setup({
-				notification = {
-					window = {
-						normal_hl = "Comment", -- Base highlight group in the notification window
-						winblend = 0, -- Background color opacity in the notification window
-						border = "none", -- Border around the notification window
-						zindex = 45, -- Stacking priority of the notification window
-						max_width = 0, -- Maximum width of the notification window
-						max_height = 0, -- Maximum height of the notification window
-						x_padding = 1, -- Padding from right edge of window boundary
-						y_padding = 0, -- Padding from bottom edge of window boundary
-						align = "bottom", -- How to align the notification window
-						relative = "editor", -- What the notification window position is relative to
-					},
-				},
 			})
 		end,
 	},

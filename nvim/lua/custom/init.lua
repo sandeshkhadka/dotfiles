@@ -1,6 +1,6 @@
-require("sandesh.keymaps")
-require("sandesh.options")
-require("sandesh.lazy")
+require("custom.keymaps")
+require("custom.options")
+require("custom.lazy")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd

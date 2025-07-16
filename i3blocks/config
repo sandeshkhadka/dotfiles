@@ -43,11 +43,11 @@ interval=1
 
 [nepalidate]
 label=
-command=/home/sandesh/.local/share/fnm/node-versions/v22.13.1/installation/bin/node /home/sandesh/dotfiles/polybar/scripts/nepalidate/nepalidate.js
+command=/home/sandesh/.local/share/fnm/node-versions/v22.16.0/installation/bin/node /home/sandesh/dotfiles/polybar/scripts/nepalidate/nepalidate.js
 interval=60
 
 [time]
 label=
-command=date +"%I:%M %p"
+command=date +"%I:%M %p %D"
 interval=1
 
