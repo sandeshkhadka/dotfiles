@@ -13,3 +13,5 @@ ln -f ./.tmux-cht-command ~/
 ln -f ./.tmux-cht-languages ~/
 
 ln -f .gitconfig ~/.gitconfig
+
+./workspace.sh

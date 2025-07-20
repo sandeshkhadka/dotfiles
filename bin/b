@@ -2,7 +2,7 @@
 # reader="zathura"
 reader="xdg-open"
 # reader="sioyek"
-book=$(find ~/Downloads/epubs ~/Downloads/pdfs -type f | rofi -dmenu)
+book=$(find ~/Downloads/epubs ~/Downloads/pdfs ~/sem -type f -printf "%f \n"| rofi -dmenu)
 if [ -z "$book" ]
 then
   exit
