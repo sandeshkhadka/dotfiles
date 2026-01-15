@@ -36,7 +36,7 @@ configuration {
 /*	kb-accept-alt: "Shift+Return";*/
 /*	kb-delete-entry: "Shift+Delete";*/
 	kb-element-next: "Shift+Right";
-	kb-element-previous: "Shift+Left";
+	kb-element-prev: "Shift+Left";
 	kb-mode-next: "Tab";
 	kb-mode-previous: "ISO_Left_Tab";
     kb-row-tab: "";

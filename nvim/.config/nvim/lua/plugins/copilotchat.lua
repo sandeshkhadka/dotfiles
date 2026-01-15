@@ -1,20 +1,42 @@
 return {
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
+		lazy = true,
+		cmd = {
+			"CopilotChat",
+			"CopilotChatOpen",
+			"CopilotChatToggle",
+		},
+		keys = {
+			{ "<leader>aa", mode = { "n", "v" } },
+			{ "<leader>ax", mode = "n" },
+			{ "<leader>as", mode = "n" },
+			{ "<leader>am", mode = "n" },
+			{ "<leader>ap", mode = { "n", "v" } },
+			{ "<leader>aq", mode = { "n", "v" } },
+			{ "<leader>ae", mode = "n" },
+			{ "<leader>ar", mode = "n" },
+			{ "<leader>at", mode = "n" },
+			{ "<leader>af", mode = "n" },
+			{ "<leader>ao", mode = "n" },
+			{ "<leader>ad", mode = "n" },
+			{ "<leader>ac", mode = "n" },
+			{ "<leader>cp", mode = "n" },
+		},
 		dependencies = {
-			{ "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
-			{ "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+			{
+				"zbirenbaum/copilot.lua",
+				lazy = true,
+			},
+			{ "nvim-lua/plenary.nvim", branch = "master" },
 		},
-		build = "make tiktoken", -- Only on MacOS or Linux
-		opts = {
-			-- See Configuration section for options
-		},
+		build = "make tiktoken",
 		config = function()
 			local chat = require("CopilotChat")
 			local select = require("CopilotChat.select")
 			local copilot = require("copilot")
 			chat.setup({
-				model = "claude-sonnet-4",
+				model = "claude-sonnet-4.5",
 				-- chat_autocomplete = false,
 				selection = select.buffer, -- Add this line to always include current buffer
 				window = {
@@ -82,7 +104,60 @@ return {
 					},
 				},
 			})
+			copilot.setup({
+				panel = {
+					enabled = false,
+					-- enabled = true,
+					auto_refresh = true,
+					keymap = {
+						jump_prev = "[[",
+						jump_next = "]]",
+						accept = "<C-y>",
+						refresh = "gr",
+						open = "<M-CR>",
+					},
+					layout = {
+						position = "bottom", -- | top | left | right
+						ratio = 0.4,
+					},
+				},
+				suggestion = {
+					-- enabled = true,
+					enabled = false,
+					auto_trigger = false,
+					-- auto_trigger = true,
+					debounce = 75,
+					keymap = {
+						accept = "<M-y>",
+						accept_word = false,
+						accept_line = "<C-l>",
+						next = "<M-]>",
+						prev = "<M-[>",
+						dismiss = "<C-]>",
+					},
+				},
+				filetypes = {
+					-- yaml = true,
+					-- markdown = true,
+					-- help = false,
+					-- gitcommit = false,
+					-- gitrebase = false,
+					-- hgcommit = false,
+					-- svn = false,
+					-- cvs = false,
+					-- ["."] = false,
+				},
+				copilot_node_command = "node", -- Node.js version must be > 16.x
+				server_opts_overrides = {},
+			})
 			-- vim.key
+
+			vim.api.nvim_set_keymap(
+				"n",
+				"<leader>cp",
+				':lua require("copilot.suggestion").toggle_auto_trigger()<CR>',
+				{ noremap = true, silent = true }
+			)
 			vim.keymap.set({ "n" }, "<leader>aa", chat.toggle, { desc = "AI Toggle" })
 			vim.keymap.set({ "v" }, "<leader>aa", chat.open, { desc = "AI Open" })
 			vim.keymap.set({ "n" }, "<leader>ax", chat.reset, { desc = "AI Reset" })

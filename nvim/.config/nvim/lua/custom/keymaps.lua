@@ -28,7 +28,6 @@ vim.keymap.set({ "i", "v", "n", "x" }, "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
 --vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<M-1>", ":tabn 1<CR>")
 vim.keymap.set("n", "<M-2>", ":tabn 2<CR>")
 vim.keymap.set("n", "<M-3>", ":tabn 3<CR>")
