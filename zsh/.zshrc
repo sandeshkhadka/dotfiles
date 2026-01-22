@@ -167,5 +167,8 @@ alias sc='. "/home/pqr/miniconda3/etc/profile.d/conda.sh"'
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 alias nn="b nn"
+alias docker=podman
 
 export PATH=$PATH:/home/pqr/.spicetify
+export EDITOR='nvim'
+

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-profile=$(grep Name /home/sandesh/.mozilla/firefox/profiles.ini | awk -F "=" '{print $2}' | dmenu -p "Profile: ")
+profile=$(grep Name /home/pqr/.mozilla/firefox/profiles.ini | awk -F "=" '{print $2}' | rofi -dmenu -p "Profile: ")
 if [ -z $profile ]
 then
   exit

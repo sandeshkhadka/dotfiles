@@ -1,14 +1,14 @@
 @import "./colors.css";
 * {
     border: none;
-    font-size: 14px;
+    font-size: 12px;
     font-family: "JetBrainsMono Nerd Font,JetBrainsMono NF" ;
-    min-height: 25px;
+    min-height: 15px;
     color: @fgcolor;
 }
 
 window#waybar {
-  background: transparent;
+  background: @bgcolor;
   margin: 5px;
  }
 
@@ -71,7 +71,7 @@ window#waybar {
 
 
 #clock{
-  color: #5fd1fa;
+  color: #c4a7e7;
 }
 
 #battery.charging {

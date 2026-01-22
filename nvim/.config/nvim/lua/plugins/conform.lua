@@ -7,7 +7,10 @@ return {
 				lua = { "stylua" },
 				-- python = { "isort", "black" },
 				-- Use a sub-list to run only the first available formatter
-				-- javascript = { "prettierd" },
+				javascript = { "prettierd" },
+				jsx = { "prettierd" },
+				tsx = { "prettierd" },
+				typescript = { "prettierd" },
 				-- cpp = { "clang-format" },
 				-- c = { "clang-format" },
 				nix = { "alejandra" },
