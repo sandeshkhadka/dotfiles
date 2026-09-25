@@ -11,8 +11,8 @@ return {
 				jsx = { "prettierd" },
 				tsx = { "prettierd" },
 				typescript = { "prettierd" },
-				-- cpp = { "clang-format" },
-				-- c = { "clang-format" },
+				cpp = { "clang-format" },
+				c = { "clang-format" },
 				nix = { "alejandra" },
 			},
 		})
